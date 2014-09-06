@@ -9,7 +9,7 @@
         <p><strong><%= pin.user.try(:name) %></strong></p>
 
 
-        <% if current_user == pin.user %>
+        <% if current_user && (current_user == pin.user) %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
               <i class="fa fa-pencil-square-o"></i>
