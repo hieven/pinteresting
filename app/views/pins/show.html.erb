@@ -9,7 +9,7 @@
 
       <div class="panel-body">
         <p><%= @pin.description %></p>
-        <p><strong><%= @pin.user.try(:email) %></strong></p>
+        <p><strong><%= @pin.user.try(:name) %></strong></p>
 
         <% if current_user == @pin.user %>
           <%= link_to edit_pin_path(@pin) do %>
