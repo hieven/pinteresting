@@ -7,6 +7,7 @@ gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.52.0'
 gem 'masonry-rails', '~> 0.2.1'
 gem 'jquery-turbolinks', '~> 2.1.0'
+gem 'font-awesome-rails', '~> 4.2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'

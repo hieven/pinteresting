@@ -1,15 +1,26 @@
+<%= render 'pages/home' if !user_signed_in? %>
+
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
-      <%= image_tag pin.image.url(:medium) %>
+      <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="panel-body">
-        <%= pin.description %>
-        <%= pin.user.try(:email) %>
-        <%= link_to 'Show', pin %>
+        <p><%= pin.description %></p>
+        <p><strong><%= pin.user.try(:email) %></strong></p>
+
+
         <% if current_user == pin.user %>
-          <%= link_to 'Edit', edit_pin_path(pin) %>
-          <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="actions">
+            <%= link_to edit_pin_path(pin) do %>
+              <i class="fa fa-pencil-square-o"></i>
+              Edit
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash"></i>Delete
+            <% end %>
+          </div>
         <% end %>
+
       </div>
     </div>
   <% end %>
